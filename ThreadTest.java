@@ -4,11 +4,11 @@ class A extends Thread
 {
     public void run()
     {
-        int a;
+        int m;
         for(int i=1;i<=10;i++)
         {
-            a=i*5;
-            System.out.println(i +"*5=" + a );
+            m=i*5;
+            System.out.println(i +"*5=" + m );
         }
     }
 }
@@ -43,7 +43,8 @@ p=2;
              }
          p++;
      }
-            
+        
+         
     }
     
 }

@@ -1,8 +1,7 @@
 import java.util.Scanner;
-public class SumAvg {
-    public static void main(String [] args) {
-      int n,sum=0;
-      float average;
+public class LargeNum {
+    public static void main(String  [] args) {
+      int n,temp;
       Scanner reader=new Scanner(System.in);
       System.out.print("Enter the number of elements in the array:");
       n=reader.nextInt();
@@ -11,10 +10,15 @@ public class SumAvg {
       for(int i=0;i<n;i++)
       {
           a[i]=reader.nextInt();
-          sum=sum+a[i];
        }
-      System.out.println("Sum : " +sum);
-      average=(float)sum/n;
-      System.out.println("Average : " +average);
+       temp=a[0];
+       for (int i=0;i<n;i++)
+       {
+             if(temp < a[i])
+             {
+                   temp =a[i];
+              } 
+        }
+      System.out.println("Largest number in the list is : " +temp);
     }
 }

@@ -1,84 +1,104 @@
 import java.util.Scanner;
-class Person {
-    String name;
-    String gender;
-     String address;
-    int age;
-    Person(){
-      name=" ";
-      gender=" ";
-      address=" ";
-      age=0;
+public class Person{
+    String Name,Gender,Address;
+    int Age;
+    
+    public Person(){
+        Name=" ";
+        Gender=" ";
+        Address=" ";
+        Age=0;
     }
-    void input(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter name: ");
-        name=sc.next();
-        System.out.println("Enter gender :");
-        gender=sc.next();
-        System.out.println("Enter address: ");
-        address=sc.next();
-        System.out.println("Enter the age: ");
-        age=sc.nextInt();
-    }
-}
- class  Employee extends Person{
-    int empid;
-    String cname;
-    String qualification;
-    int salary;
-    Employee(){
-        empid=0;
-        cname=" ";
-        qualification=" ";
-        salary=0;
-    }
-   void input2(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the employee id: ");
-        empid=sc.nextInt();
-        System.out.println("Enter company name: ");
-        cname=sc.next();
-        System.out.println("Enter qualification: ");
-        qualification=sc.next();
-        System.out.println("Enter salary: ");
-        salary=sc.nextInt();
+    public void pinput(){
+        Scanner reader=new Scanner(System.in);
+        System.out.println("\nEnter the Name:");
+        Name=reader.next();
+        System.out.println("Enter the Gender:");
+        Gender=reader.next();
+        System.out.println("Enter the Address:");
+        Address=reader.next();
+        System.out.println("Enter the Age:");
+        Age=reader.nextInt();
     }
 }
-class Teacher2 extends Employee{
-    String subject;
-     String dept;
-    int teacherid;
-    Teacher2(){
-        subject=" ";
-        dept=" ";
-        teacherid=0;
+
+class Employee extends Person {
+    int Empid;
+    String Company_name;
+    String Qualification;
+    float Salary;
+    
+    public Employee() {
+        Empid=0;
+        Company_name=" ";
+        Qualification=" ";
+        Salary=0;
     }
-    void input3(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter subject: ");
-        subject=sc.next();
-        System.out.println("Enter department: ");
-        dept=sc.next();
-        System.out.println("Enter teacher id: ");
-        teacherid=sc.nextInt();
-
+    public void einput(){
+        Scanner reader=new Scanner(System.in);
+        System.out.println("\nEnter the Employee id:");
+        Empid=reader.nextInt();
+        System.out.println("Enter the Company Name:");
+        Company_name=reader.next();
+        System.out.println("Enter the Qualification:");
+        Qualification=reader.next();
+        System.out.println("Enter the Salary:");
+        Salary=reader.nextFloat();
+        
     }
-
-   void display(){
-        System.out.println("Name: "+name);
-        System.out.println("Gender: "+gender);
-        System.out.println("Address: "+address);
-        System.out.println("Age: "+age);
-        System.out.println("Employee Id: "+empid);
-        System.out.println("Company Name: "+cname);
-        System.out.println("Qualification: "+qualification);
-        System.out.println("Salary: "+salary);
-        System.out.println("Subject: "+subject);
-        System.out.println("Department: "+dept);
-        System.out.println("Teacher Id: "+teacherid+"\n");
+}
+class Teeacher extends Employee {
+    String Sub;
+    String Dept;
+    int Tid;
+    
+    public Teeacher(){
+        Sub=" ";
+        Dept=" ";
+        Tid=0;
     }
-
-
-   
+    public void tinput() {
+        Scanner reader=new Scanner(System.in);
+        System.out.println("\nEnter the Subject:");
+        Sub=reader.next();
+        System.out.println("Enter the Department:");
+        Dept=reader.next();
+        System.out.println("Enter the TeacherId:");
+        Tid=reader.nextInt();
+    }
+    public void output() {
+        System.out.println("\nNAME:"+Name);
+        System.out.println("GENDER:"+Gender);
+        System.out.println("ADDRESS:"+Address);
+        System.out.println("AGE:"+Age);
+        System.out.println("EMPLOYEE ID:"+Empid);
+        System.out.println("COMPANY NAME:"+Company_name);
+        System.out.println("QUALIFICTION:"+Qualification);
+        System.out.println("SALARY:"+Salary);
+        System.out.println("SUBJECT:"+Sub);
+        System.out.println("DEPARTMENT:"+Dept);
+        System.out.println("TEACHER ID:"+Tid);
+    }
+    public static void main (String [] args){
+        int n;
+        Scanner reader=new Scanner(System.in);
+        System.out.print("Enter the no.of Teachers:");
+        n=reader.nextInt();
+        Teeacher t[]=new Teeacher[n];
+        
+        for(int i=0;i<n;i++){
+            t[i]=new Teeacher();
+            t[i].pinput();
+            System.out.print("\n");
+            t[i].einput();
+            System.out.print("\n");
+            t[i].tinput();
+            
+        }
+        System.out.print("----Employee Details---");
+        for(int i=0;i<n;i++){
+            t[i].output();
+             System.out.print("\n");
+        }
+    }
 }

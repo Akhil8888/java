@@ -1,14 +1,15 @@
 import java.util.Scanner;
 import java.lang.Thread;
-class A implements Runnable{
+class X implements Runnable{
     public void run(){
-        Scanner sc=new Scanner(System.in);
-        int n , a= 0,b= 1,c;
-        System.out.println("Enter the limit of numbers:");
-         n=sc.nextInt();
-    System.out.println("Fibonacci Series till " + n + " terms:");
+        Scanner reader=new Scanner(System.in);
+        int p1 ,a= 0,b= 1,c;
+        System.out.println("Enter the  limit:");
+        p1=reader.nextInt();
+        
+    System.out.println("Fibonacci Series :");
 
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= p1; ++i) {
       System.out.print(a + ", ");
 
       c = a+ b;
@@ -17,14 +18,14 @@ class A implements Runnable{
     }
     }
 }
-class B implements Runnable{
+class Y implements Runnable{
     public void run(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter  starting limit:"); 
-        int n1=sc.nextInt();
-        System.out.println("Enter  ending limit:"); 
-        int n2=sc.nextInt();
-        System.out.println("Even numbers are:"); 
+        Scanner reader=new Scanner(System.in);
+        System.out.println("Enter the  starting limit:"); 
+        int n1=reader.nextInt();
+        System.out.println("Enter the  ending limit:"); 
+        int n2=reader.nextInt();
+        System.out.println("Even numbers in the range:"); 
         for(int i=n1;i<=n2;i++){
             if(i%2 == 0)
                 System.out.println(i);
@@ -35,16 +36,16 @@ public class ThreadRunnable {
 
     
     public static void main(String[] args) {
-        A obj1 =new A();
-        Thread one=new Thread(obj1);
+        X obj1 =new X();
+        Thread t1=new Thread (obj1);
         
         
-        B obj2 =new B();
-        Thread two=new Thread(obj2);
+        Y obj2 =new Y();
+        Thread t2=new Thread (obj2);
         
         
-            one.start();
-            two.start();
+            t1.start();
+            t2. start();
     }
     
 }
